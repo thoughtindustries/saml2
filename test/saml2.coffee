@@ -582,7 +582,7 @@ describe 'saml2', ->
         allow_unencrypted_assertion: true
         ignore_timing: true
         request_body:
-          SAMLResponse: new Buffer(get_test_file("no_subject.xml")).toString('base64')
+          SAMLResponse: Buffer.from(get_test_file("no_subject.xml")).toString('base64')
 
       sp = new saml2.ServiceProvider sp_options
       idp = new saml2.IdentityProvider idp_options
@@ -1117,7 +1117,7 @@ describe 'saml2', ->
       sp.create_login_request_url idp, request_options, (err, login_url, id) ->
         assert not err?, "Error creating login URL: #{err}"
         parsed_url = url.parse login_url, true
-        saml_request = new Buffer(parsed_url.query?.SAMLRequest, 'base64')
+        saml_request = Buffer.from(parsed_url.query?.SAMLRequest, 'base64')
         zlib.inflateRaw saml_request, (err, result) ->
           assert.notEqual result.toString('utf8').indexOf("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"), -1
           done()
@@ -1142,7 +1142,7 @@ describe 'saml2', ->
       sp.create_login_request_url idp, request_options, (err, login_url, id) ->
         assert not err?, "Error creating login URL: #{err}"
         parsed_url = url.parse login_url, true
-        saml_request = new Buffer(parsed_url.query?.SAMLRequest, 'base64')
+        saml_request = Buffer.from(parsed_url.query?.SAMLRequest, 'base64')
         zlib.inflateRaw saml_request, (err, result) ->
           assert.notEqual result.toString('utf8').indexOf("urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"), -1
           done()
