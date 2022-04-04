@@ -1,12 +1,12 @@
 {
   "name": "@thoughtindustries/saml2-js",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "SAML 2.0 node helpers",
   "author": "Clever",
   "license": "Apache-2.0",
   "main": "index.js",
   "engines": {
-    "node": ">=10.x"
+    "node": ">=12.x"
   },
   "scripts": {
     "build": "coffee --bare -c -o lib-js lib",
