@@ -34,7 +34,7 @@
     "nyc": "^15.0.0"
   },
   "dependencies": {
-    "@xmldom/xmldom": "^0.7.5",
+    "@xmldom/xmldom": "^0.8.3",
     "async": "^3.2.0",
     "debug": "^4.3.0",
     "underscore": "^1.8.0",
